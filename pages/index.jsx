@@ -1,19 +1,18 @@
-// App.js
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
-import { Data } from "../utils/Data";
+import { spyData } from "../utils/spyData";
 import LineChart from "./Chart/lineChart";
 
 Chart.register(CategoryScale);
 
 export default function App() {
   const [chartData, setChartData] = useState({
-    labels: Data.map((data) => data.year),
+    labels: spyData.map((data) => data.Year),
     datasets: [
       {
         label: "Users Gained ",
-        data: Data.map((data) => data.userGain),
+        data: spyData.map((data) => data.Close),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#50AF95",
