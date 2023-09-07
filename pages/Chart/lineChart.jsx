@@ -1,20 +1,16 @@
 import React from "react";
-import { Chart } from "chart.js";
 import { Line } from "react-chartjs-2";
 
 const plugins = [
   {
     afterDraw: (chart) => {
-      // eslint-disable-next-line no-underscore-dangle
       if (chart.tooltip._active && chart.tooltip._active.length) {
-        // find coordinates of tooltip
         const activePoint = chart.tooltip._active[0];
         const { ctx } = chart;
         const { x } = activePoint.element;
         const topY = chart.scales.y.top;
         const bottomY = chart.scales.y.bottom;
 
-        // draw vertical line
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(x, topY);
@@ -36,6 +32,7 @@ function LineChart({ chartData }) {
         plugins={plugins}
         data={chartData}
         options={{
+          tension: 0.5,
           plugins: {
             tooltip: {
               intersect: false,
@@ -50,7 +47,12 @@ function LineChart({ chartData }) {
               text: "Quarterly Price on Close",
             },
             legend: {
-              display: false,
+              display: true,
+            },
+            elements: {
+              line: {
+                tension: 0.5,
+              },
             },
           },
         }}

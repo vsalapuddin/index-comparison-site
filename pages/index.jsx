@@ -13,27 +13,17 @@ export default function App() {
     labels: spyData.map((data) => data.Year),
     datasets: [
       {
-        label: "spyData",
+        label: "SPY",
         data: spyData.map((data) => data.Close),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "#50AF95",
+        backgroundColor: ["#87CEEB"],
+        borderColor: "#87CEEB",
         borderWidth: 1,
       },
       {
-        label: "ndxData",
+        label: "NDX",
         data: ndxData.map((data) => data.Close),
-        backgroundColor: [
-          "rgba(75,192,192,1)",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "#50AF95",
+        backgroundColor: ["#00c805"],
+        borderColor: "#00c805",
         borderWidth: 1,
       },
     ],
