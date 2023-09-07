@@ -2,6 +2,8 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
 import { spyData } from "../utils/spyData";
+import { ndxData } from "../utils/ndxData";
+
 import LineChart from "./Chart/lineChart";
 
 Chart.register(CategoryScale);
@@ -11,7 +13,7 @@ export default function App() {
     labels: spyData.map((data) => data.Year),
     datasets: [
       {
-        label: "Users Gained ",
+        label: "spyData",
         data: spyData.map((data) => data.Close),
         backgroundColor: [
           "rgba(75,192,192,1)",
@@ -19,8 +21,20 @@ export default function App() {
           "#f3ba2f",
           "#2a71d0",
         ],
-        borderColor: "black",
-        borderWidth: 2,
+        borderColor: "#50AF95",
+        borderWidth: 1,
+      },
+      {
+        label: "ndxData",
+        data: ndxData.map((data) => data.Close),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "#50AF95",
+        borderWidth: 1,
       },
     ],
   });
