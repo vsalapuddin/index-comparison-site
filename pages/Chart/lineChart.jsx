@@ -17,6 +17,7 @@ const plugins = [
         ctx.lineTo(x, bottomY);
         ctx.lineWidth = 2;
         ctx.strokeStyle = "#FFFFFF";
+        ctx.setLineDash([5, 5]);
         ctx.stroke();
         ctx.restore();
       }
@@ -27,12 +28,18 @@ const plugins = [
 function LineChart({ chartData }) {
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center" }}>SPY vs NDX vs OUR</h2>
+      <h2
+        style={{ textAlign: "center" }}
+        className="text-2xl  font-semibold text-center animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change-transform"
+      >
+        SPY vs NDX vs ???
+      </h2>
       <Line
         plugins={plugins}
         data={chartData}
         options={{
           tension: 0.5,
+          pointHoverRadius: 10,
           plugins: {
             tooltip: {
               intersect: false,
@@ -44,7 +51,7 @@ function LineChart({ chartData }) {
             },
             title: {
               display: true,
-              text: "Quarterly Price on Close",
+              text: "The chart below displays the growth of a $10,000 investment in both assets, with all prices adjusted for splits and dividends.",
             },
             legend: {
               display: true,
